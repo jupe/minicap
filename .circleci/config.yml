@@ -22,3 +22,4 @@ jobs:
           command: ndk-build
       - store_artifacts:
           path: libs
+          destination: libs
