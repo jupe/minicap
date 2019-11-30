@@ -10,7 +10,8 @@ workflows:
       - build
 
 jobs:
-  docker:
+  build:
+    docker:
       - image: dwillmc/android-27-alpha-ndk
     environment:
       ANDROID_HOME: /usr/local/android-sdk-linux
