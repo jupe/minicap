@@ -9,7 +9,7 @@ jobs:
       - image: circleci/android:api-28-ndk
   steps:
     - checkout
-    - android/install-ndk
+    - android/install-ndk:
         ndk-version: android-ndk-r19c # or any other version
     - run:
           name: update deps
