@@ -1,8 +1,5 @@
 version: 2.1
 
-orbs:
-  android: circleci/android@0.2.0
-
 workflows:
   version: 2
   build:
@@ -12,18 +9,11 @@ workflows:
 jobs:
   build:
     docker:
-      - image: dwillmc/android-27-alpha-ndk
-    environment:
-      ANDROID_HOME: /usr/local/android-sdk-linux
-      JVM_OPTS: -Xmx3200m
+      - image: bitriseio/android-ndk:latest
     steps:
       - checkout
       - run:
           name: Download Dependencies
-          pre:
-            - echo y | android update sdk --no-ui --all --filter "platform-tools, tools"
-            - echo y | android update sdk --no-ui --all --filter "android-24, build-tools-25.0.2"
-            - echo y | android update sdk --no-ui --all --filter "extra-android-m2repository"
           command: |
               git submodule init
               git submodule update
